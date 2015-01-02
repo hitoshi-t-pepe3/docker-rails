@@ -3,16 +3,30 @@ MAINTAINER pepechoko
 
 RUN yum update -y
 RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-RUN yum install -y build-essential which tar git tree curl passwd openssh openssh-server openssh-clients sudo
-RUN yum install -y zlib-devel openssl-devel readline-devel libyaml-devel libxml2-devel libxslt-devel
-RUN yum install -y gcc gcc-c++ sqlite-devel
+RUN yum install -y \
+  build-essential \
+  which \
+  tar \
+  git \
+  tree \
+  curl \
+  passwd \
+  openssh \
+  openssh-server \
+  openssh-clients \
+  sudo
+  zlib-devel \
+  openssl-devel \
+  readline-devel \
+  libyaml-devel \
+  libxml2-devel \
+  libxslt-devel
+  gcc\
+  gcc-c++\
+  sqlite-devel
 
-## add rails user
+## add rbenv group
 RUN groupadd rbenv
-RUN useradd -m -s /bin/bash rails
-RUN echo 'rails:password' | chpasswd
-RUN echo 'rails ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/rails
-RUN gpasswd -a rails rbenv
 
 # Install rbenv 
 RUN cd /usr/local && git clone https://github.com/sstephenson/rbenv.git 
