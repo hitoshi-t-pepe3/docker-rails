@@ -5,25 +5,25 @@ RUN yum update -y
 RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 RUN yum install -y \
   build-essential \
-  which \
-  tar \
-  git \
-  tree \
   curl \
-  passwd \
-  openssh \
-  openssh-server \
-  openssh-clients \
-  sudo
-  zlib-devel \
-  openssl-devel \
-  readline-devel \
-  libyaml-devel \
+  gcc \
+  gcc-c++ \
+  git \
   libxml2-devel \
-  libxslt-devel
-  gcc\
-  gcc-c++\
-  sqlite-devel
+  libxslt-devel \
+  libyaml-devel \
+  openssh \
+  openssh-clients \
+  openssh-server \
+  openssl-devel \
+  passwd \
+  readline-devel \
+  sqlite-devel \
+  sudo
+  tar \
+  tree \
+  which \
+  zlib-devel
 
 ## add rbenv group
 RUN groupadd rbenv
