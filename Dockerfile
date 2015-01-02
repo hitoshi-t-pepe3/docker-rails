@@ -4,14 +4,16 @@ MAINTAINER pepechoko
 RUN yum update -y
 RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
 RUN yum install -y \
-  build-essential \
-  curl \
+  autoconf \
+  automake \
+  curl-devel \
   gcc \
   gcc-c++ \
   git \
   libxml2-devel \
   libxslt-devel \
   libyaml-devel \
+  make \
   openssh \
   openssh-clients \
   openssh-server \
@@ -19,11 +21,12 @@ RUN yum install -y \
   passwd \
   readline-devel \
   sqlite-devel \
-  sudo
+  sudo \
   tar \
   tree \
   which \
-  zlib-devel
+  zlib-devel 
+  
 
 ## add rbenv group
 RUN groupadd rbenv
