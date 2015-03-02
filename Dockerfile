@@ -1,9 +1,15 @@
 FROM centos:centos6
 MAINTAINER pepechoko
 
-RUN yum update -y
-RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
-RUN yum install -y \
+RUN 
+  yum update -y && \
+  apt-get clean && \
+  rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/* 
+
+RUN \
+  rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+
+RUN yum install -y --no-install-recommends \
   autoconf \
   automake \
   curl-devel \
@@ -14,6 +20,7 @@ RUN yum install -y \
   libxslt-devel \
   libyaml-devel \
   make \
+  mysql-devel \
   openssh \
   openssh-clients \
   openssh-server \
@@ -25,8 +32,7 @@ RUN yum install -y \
   tar \
   tree \
   which \
-  zlib-devel 
-  
+  zlib-devel
 
 ## add rbenv group
 RUN groupadd rbenv
