@@ -1,7 +1,7 @@
 FROM centos:centos6
 MAINTAINER pepechoko
 
-RUN 
+RUN \
   yum update -y \
   && yum clean 
 
