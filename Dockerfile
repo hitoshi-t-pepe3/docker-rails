@@ -1,9 +1,8 @@
 FROM centos:centos6
 MAINTAINER pepechoko
 
-RUN \
-  yum update -y \
-  && yum clean 
+RUN yum update -y \
+  && yum clean all
 
 RUN \
   rpm -Uvh http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
@@ -32,7 +31,8 @@ RUN yum install -y \
   tree \
   which \
   zlib-devel \
-  && yum clean 
+  && yum clean all
+
 
 # Install rbenv 
 RUN \
