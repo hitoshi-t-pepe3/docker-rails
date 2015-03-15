@@ -36,7 +36,7 @@ RUN yum install -y \
 
 # Install rbenv 
 RUN \
-  groupadd rbenv
+  groupadd rbenv && \
   cd /usr/local && \
   git clone https://github.com/sstephenson/rbenv.git && \
   chgrp -R rbenv /usr/local/rbenv && \
